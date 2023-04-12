@@ -33,7 +33,7 @@ impl<R: AsyncRead> Take<R> {
     ///
     /// This instance may reach `EOF` after reading fewer bytes than indicated by
     /// this method if the underlying [`AsyncRead`] instance reaches EOF.
-    pub fn limit(&self) -> u64 {
+    pub const fn limit(&self) -> u64 {
         self.limit_
     }
 
@@ -46,7 +46,7 @@ impl<R: AsyncRead> Take<R> {
     }
 
     /// Gets a reference to the underlying reader.
-    pub fn get_ref(&self) -> &R {
+    pub const fn get_ref(&self) -> &R {
         &self.inner
     }
 

@@ -600,7 +600,7 @@ impl<'a, Inner: AsRawFd> AsyncFdReadyGuard<'a, Inner> {
     }
 
     /// Returns a shared reference to the inner [`AsyncFd`].
-    pub fn get_ref(&self) -> &'a AsyncFd<Inner> {
+    pub const fn get_ref(&self) -> &'a AsyncFd<Inner> {
         self.async_fd
     }
 

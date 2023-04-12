@@ -56,32 +56,32 @@ pub(crate) enum InsertError {
 
 impl Error {
     /// Creates an error representing a shutdown timer.
-    pub fn shutdown() -> Error {
+    pub const fn shutdown() -> Error {
         Error(Shutdown)
     }
 
     /// Returns `true` if the error was caused by the timer being shutdown.
-    pub fn is_shutdown(&self) -> bool {
+    pub const fn is_shutdown(&self) -> bool {
         matches!(self.0, Kind::Shutdown)
     }
 
     /// Creates an error representing a timer at capacity.
-    pub fn at_capacity() -> Error {
+    pub const fn at_capacity() -> Error {
         Error(AtCapacity)
     }
 
     /// Returns `true` if the error was caused by the timer being at capacity.
-    pub fn is_at_capacity(&self) -> bool {
+    pub const fn is_at_capacity(&self) -> bool {
         matches!(self.0, Kind::AtCapacity)
     }
 
     /// Creates an error representing a misconfigured timer.
-    pub fn invalid() -> Error {
+    pub const fn invalid() -> Error {
         Error(Invalid)
     }
 
     /// Returns `true` if the error was caused by the timer being misconfigured.
-    pub fn is_invalid(&self) -> bool {
+    pub const fn is_invalid(&self) -> bool {
         matches!(self.0, Kind::Invalid)
     }
 }

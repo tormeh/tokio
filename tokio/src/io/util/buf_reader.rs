@@ -56,7 +56,7 @@ impl<R: AsyncRead> BufReader<R> {
     /// Gets a reference to the underlying reader.
     ///
     /// It is inadvisable to directly read from the underlying reader.
-    pub fn get_ref(&self) -> &R {
+    pub const fn get_ref(&self) -> &R {
         &self.inner
     }
 

@@ -440,7 +440,7 @@ impl<T: fmt::Debug> Error for SetError<T> {}
 
 impl<T> SetError<T> {
     /// Whether `SetError` is `SetError::AlreadyInitializedError`.
-    pub fn is_already_init_err(&self) -> bool {
+    pub const fn is_already_init_err(&self) -> bool {
         match self {
             SetError::AlreadyInitializedError(_) => true,
             SetError::InitializingError(_) => false,
@@ -448,7 +448,7 @@ impl<T> SetError<T> {
     }
 
     /// Whether `SetError` is `SetError::InitializingError`
-    pub fn is_initializing_err(&self) -> bool {
+    pub const fn is_initializing_err(&self) -> bool {
         match self {
             SetError::AlreadyInitializedError(_) => false,
             SetError::InitializingError(_) => true,

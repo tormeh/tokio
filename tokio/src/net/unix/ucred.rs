@@ -13,12 +13,12 @@ pub struct UCred {
 
 impl UCred {
     /// Gets UID (user ID) of the process.
-    pub fn uid(&self) -> unix::uid_t {
+    pub const fn uid(&self) -> unix::uid_t {
         self.uid
     }
 
     /// Gets GID (group ID) of the process.
-    pub fn gid(&self) -> unix::gid_t {
+    pub const fn gid(&self) -> unix::gid_t {
         self.gid
     }
 
@@ -26,7 +26,7 @@ impl UCred {
     ///
     /// This is only implemented under Linux, Android, iOS, macOS, Solaris and
     /// Illumos. On other platforms this will always return `None`.
-    pub fn pid(&self) -> Option<unix::pid_t> {
+    pub const fn pid(&self) -> Option<unix::pid_t> {
         self.pid
     }
 }

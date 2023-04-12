@@ -37,7 +37,7 @@ where
     U: AsyncRead,
 {
     /// Gets references to the underlying readers in this `Chain`.
-    pub fn get_ref(&self) -> (&T, &U) {
+    pub const fn get_ref(&self) -> (&T, &U) {
         (&self.first, &self.second)
     }
 

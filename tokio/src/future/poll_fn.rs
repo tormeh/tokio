@@ -25,7 +25,7 @@ pub struct PollFn<F> {
 }
 
 /// Creates a new future wrapping around a function returning [`Poll`].
-pub fn poll_fn<T, F>(f: F) -> PollFn<F>
+pub const fn poll_fn<T, F>(f: F) -> PollFn<F>
 where
     F: FnMut(&mut Context<'_>) -> Poll<T>,
 {

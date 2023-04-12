@@ -44,7 +44,7 @@ cfg_io_util! {
     ///     Ok(())
     /// }
     /// ```
-    pub fn sink() -> Sink {
+    pub const fn sink() -> Sink {
         Sink { _p: () }
     }
 }

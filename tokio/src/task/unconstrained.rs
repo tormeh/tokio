@@ -40,6 +40,6 @@ where
 ///
 /// See also the usage example in the [task module](index.html#unconstrained).
 #[cfg_attr(docsrs, doc(cfg(feature = "rt")))]
-pub fn unconstrained<F>(inner: F) -> Unconstrained<F> {
+pub const fn unconstrained<F>(inner: F) -> Unconstrained<F> {
     Unconstrained { inner }
 }

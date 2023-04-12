@@ -522,7 +522,7 @@ impl Interval {
     }
 
     /// Returns the [`MissedTickBehavior`] strategy currently being used.
-    pub fn missed_tick_behavior(&self) -> MissedTickBehavior {
+    pub const fn missed_tick_behavior(&self) -> MissedTickBehavior {
         self.missed_tick_behavior
     }
 
@@ -532,7 +532,7 @@ impl Interval {
     }
 
     /// Returns the period of the interval.
-    pub fn period(&self) -> Duration {
+    pub const fn period(&self) -> Duration {
         self.period
     }
 }

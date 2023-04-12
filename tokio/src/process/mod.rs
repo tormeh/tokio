@@ -323,7 +323,7 @@ impl Command {
 
     /// Cheaply convert to a `&std::process::Command` for places where the type from the standard
     /// library is expected.
-    pub fn as_std(&self) -> &StdCommand {
+    pub const fn as_std(&self) -> &StdCommand {
         &self.std
     }
 

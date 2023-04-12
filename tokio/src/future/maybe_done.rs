@@ -21,7 +21,7 @@ pub enum MaybeDone<Fut: Future> {
 impl<Fut: Future + Unpin> Unpin for MaybeDone<Fut> {}
 
 /// Wraps a future into a `MaybeDone`.
-pub fn maybe_done<Fut: Future>(future: Fut) -> MaybeDone<Fut> {
+pub const fn maybe_done<Fut: Future>(future: Fut) -> MaybeDone<Fut> {
     MaybeDone::Future(future)
 }
 

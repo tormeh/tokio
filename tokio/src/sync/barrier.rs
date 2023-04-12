@@ -200,7 +200,7 @@ impl BarrierWaitResult {
     ///
     /// Only one task will have `true` returned from their result, all other tasks will have
     /// `false` returned.
-    pub fn is_leader(&self) -> bool {
+    pub const fn is_leader(&self) -> bool {
         self.0
     }
 }

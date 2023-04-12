@@ -931,7 +931,7 @@ impl<'a, T: ?Sized> MutexGuard<'a, T> {
     /// # }
     /// ```
     #[inline]
-    pub fn mutex(this: &Self) -> &'a Mutex<T> {
+    pub const fn mutex(this: &Self) -> &'a Mutex<T> {
         this.lock
     }
 }
@@ -1111,7 +1111,7 @@ impl<T: ?Sized> OwnedMutexGuard<T> {
     /// # }
     /// ```
     #[inline]
-    pub fn mutex(this: &Self) -> &Arc<Mutex<T>> {
+    pub const fn mutex(this: &Self) -> &Arc<Mutex<T>> {
         &this.lock
     }
 }

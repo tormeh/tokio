@@ -79,7 +79,7 @@ impl OpenOptions {
     /// Creates a blank new set of options ready for configuration.
     ///
     /// All options are initially set to `false`.
-    pub fn new() -> OpenOptions {
+    pub const fn new() -> OpenOptions {
         OpenOptions {
             #[cfg(target_os = "linux")]
             read_write: false,

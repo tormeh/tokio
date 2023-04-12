@@ -52,7 +52,7 @@ impl<RW: AsyncRead + AsyncWrite> BufStream<RW> {
     /// Gets a reference to the underlying I/O object.
     ///
     /// It is inadvisable to directly read from the underlying I/O object.
-    pub fn get_ref(&self) -> &RW {
+    pub const fn get_ref(&self) -> &RW {
         self.inner.get_ref().get_ref()
     }
 

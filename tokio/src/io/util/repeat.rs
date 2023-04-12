@@ -41,7 +41,7 @@ cfg_io_util! {
     ///     assert_eq!(buffer, [0b101, 0b101, 0b101]);
     /// }
     /// ```
-    pub fn repeat(byte: u8) -> Repeat {
+    pub const fn repeat(byte: u8) -> Repeat {
         Repeat { byte }
     }
 }

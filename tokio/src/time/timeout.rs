@@ -172,7 +172,7 @@ impl<T> Timeout<T> {
     }
 
     /// Gets a reference to the underlying value in this timeout.
-    pub fn get_ref(&self) -> &T {
+    pub const fn get_ref(&self) -> &T {
         &self.value
     }
 

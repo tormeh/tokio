@@ -300,7 +300,7 @@ impl Handle {
     ///   assert_eq!(RuntimeFlavor::MultiThread, Handle::current().runtime_flavor());
     /// }
     /// ```
-    pub fn runtime_flavor(&self) -> RuntimeFlavor {
+    pub const fn runtime_flavor(&self) -> RuntimeFlavor {
         match self.inner {
             scheduler::Handle::CurrentThread(_) => RuntimeFlavor::CurrentThread,
             #[cfg(all(feature = "rt-multi-thread", not(tokio_wasi)))]
@@ -342,14 +342,14 @@ impl TryCurrentError {
 
     /// Returns true if the call failed because there is currently no runtime in
     /// the Tokio context.
-    pub fn is_missing_context(&self) -> bool {
+    pub const fn is_missing_context(&self) -> bool {
         matches!(self.kind, TryCurrentErrorKind::NoContext)
     }
 
     /// Returns true if the call failed because the Tokio context thread-local
     /// had been destroyed. This can usually only happen if in the destructor of
     /// other thread-locals.
-    pub fn is_thread_local_destroyed(&self) -> bool {
+    pub const fn is_thread_local_destroyed(&self) -> bool {
         matches!(self.kind, TryCurrentErrorKind::ThreadLocalDestroyed)
     }
 }

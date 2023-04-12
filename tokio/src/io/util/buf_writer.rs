@@ -84,7 +84,7 @@ impl<W: AsyncWrite> BufWriter<W> {
     }
 
     /// Gets a reference to the underlying writer.
-    pub fn get_ref(&self) -> &W {
+    pub const fn get_ref(&self) -> &W {
         &self.inner
     }
 

@@ -41,7 +41,7 @@ cfg_io_util! {
     ///     assert!(buffer.is_empty());
     /// }
     /// ```
-    pub fn empty() -> Empty {
+    pub const fn empty() -> Empty {
         Empty { _p: () }
     }
 }

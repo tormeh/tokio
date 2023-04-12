@@ -165,7 +165,7 @@ impl<'a, T> Ref<'a, T> {
     ///     assert!(!rx.borrow().has_changed());
     /// }
     /// ```
-    pub fn has_changed(&self) -> bool {
+    pub const fn has_changed(&self) -> bool {
         self.has_changed
     }
 }

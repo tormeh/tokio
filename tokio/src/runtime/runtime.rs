@@ -166,7 +166,7 @@ impl Runtime {
     ///
     /// // Use the handle...
     /// ```
-    pub fn handle(&self) -> &Handle {
+    pub const fn handle(&self) -> &Handle {
         &self.handle
     }
 

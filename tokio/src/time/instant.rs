@@ -50,7 +50,7 @@ impl Instant {
     }
 
     /// Create a `tokio::time::Instant` from a `std::time::Instant`.
-    pub fn from_std(std: std::time::Instant) -> Instant {
+    pub const fn from_std(std: std::time::Instant) -> Instant {
         Instant { std }
     }
 

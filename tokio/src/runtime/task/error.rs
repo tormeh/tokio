@@ -33,7 +33,7 @@ impl JoinError {
     }
 
     /// Returns true if the error was caused by the task being cancelled.
-    pub fn is_cancelled(&self) -> bool {
+    pub const fn is_cancelled(&self) -> bool {
         matches!(&self.repr, Repr::Cancelled)
     }
 
@@ -53,7 +53,7 @@ impl JoinError {
     ///     assert!(err.is_panic());
     /// }
     /// ```
-    pub fn is_panic(&self) -> bool {
+    pub const fn is_panic(&self) -> bool {
         matches!(&self.repr, Repr::Panic(_))
     }
 

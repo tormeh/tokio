@@ -143,7 +143,7 @@ impl<T: 'static> LocalKey<T> {
     ///
     /// [`with`]: fn@Self::with
     /// [`try_with`]: fn@Self::try_with
-    pub fn scope<F>(&'static self, value: T, f: F) -> TaskLocalFuture<T, F>
+    pub const fn scope<F>(&'static self, value: T, f: F) -> TaskLocalFuture<T, F>
     where
         F: Future,
     {
