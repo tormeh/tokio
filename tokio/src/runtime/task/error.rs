@@ -18,7 +18,7 @@ enum Repr {
 }
 
 impl JoinError {
-    pub(crate) fn cancelled(id: Id) -> JoinError {
+    pub(crate) const fn cancelled(id: Id) -> JoinError {
         JoinError {
             repr: Repr::Cancelled,
             id,

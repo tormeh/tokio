@@ -63,7 +63,7 @@ impl Wheel {
 
     /// Returns the number of milliseconds that have elapsed since the timing
     /// wheel's creation.
-    pub(crate) fn elapsed(&self) -> u64 {
+    pub(crate) const fn elapsed(&self) -> u64 {
         self.elapsed
     }
 
@@ -272,12 +272,12 @@ impl Wheel {
         self.levels[expiration.level].take_slot(expiration.slot)
     }
 
-    fn level_for(&self, when: u64) -> usize {
+    const fn level_for(&self, when: u64) -> usize {
         level_for(self.elapsed, when)
     }
 }
 
-fn level_for(elapsed: u64, when: u64) -> usize {
+const fn level_for(elapsed: u64, when: u64) -> usize {
     const SLOT_MASK: u64 = (1 << 6) - 1;
 
     // Mask in the trailing bits ignored by the level calculation in order to cap

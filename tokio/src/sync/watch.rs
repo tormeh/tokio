@@ -317,7 +317,7 @@ mod state {
 
     impl Version {
         /// Get the initial version when creating the channel.
-        pub(super) fn initial() -> Self {
+        pub(super) const fn initial() -> Self {
             Version(0)
         }
     }
@@ -337,7 +337,7 @@ mod state {
     impl AtomicState {
         /// Create a new `AtomicState` that is not closed and which has the
         /// version set to `Version::initial()`.
-        pub(super) fn new() -> Self {
+        pub(super) const fn new() -> Self {
             AtomicState(AtomicUsize::new(0))
         }
 

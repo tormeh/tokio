@@ -45,7 +45,7 @@ impl Pack {
         self.pack(value & self.max_value(), base)
     }
 
-    pub(crate) fn unpack(&self, src: usize) -> usize {
+    pub(crate) const fn unpack(&self, src: usize) -> usize {
         unpack(src, self.mask, self.shift)
     }
 }

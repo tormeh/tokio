@@ -9,9 +9,9 @@ cfg_not_rt_and_metrics_and_net! {
     pub(crate) struct IoDriverMetrics {}
 
     impl IoDriverMetrics {
-        pub(crate) fn incr_fd_count(&self) {}
-        pub(crate) fn dec_fd_count(&self) {}
-        pub(crate) fn incr_ready_count_by(&self, _amt: u64) {}
+        pub(crate) const fn incr_fd_count(&self) {}
+        pub(crate) const fn dec_fd_count(&self) {}
+        pub(crate) const fn incr_ready_count_by(&self, _amt: u64) {}
     }
 }
 

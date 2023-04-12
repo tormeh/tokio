@@ -187,7 +187,7 @@ impl Level {
         })
     }
 
-    fn next_occupied_slot(&self, now: u64) -> Option<usize> {
+    const fn next_occupied_slot(&self, now: u64) -> Option<usize> {
         if self.occupied == 0 {
             return None;
         }
@@ -237,20 +237,20 @@ impl fmt::Debug for Level {
     }
 }
 
-fn occupied_bit(slot: usize) -> u64 {
+const fn occupied_bit(slot: usize) -> u64 {
     1 << slot
 }
 
-fn slot_range(level: usize) -> u64 {
+const fn slot_range(level: usize) -> u64 {
     LEVEL_MULT.pow(level as u32) as u64
 }
 
-fn level_range(level: usize) -> u64 {
+const fn level_range(level: usize) -> u64 {
     LEVEL_MULT as u64 * slot_range(level)
 }
 
 /// Converts a duration (milliseconds) and a level to a slot position.
-fn slot_for(duration: u64, level: usize) -> usize {
+const fn slot_for(duration: u64, level: usize) -> usize {
     ((duration >> (level * 6)) % LEVEL_MULT as u64) as usize
 }
 

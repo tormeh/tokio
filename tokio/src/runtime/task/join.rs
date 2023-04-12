@@ -166,7 +166,7 @@ impl<T> UnwindSafe for JoinHandle<T> {}
 impl<T> RefUnwindSafe for JoinHandle<T> {}
 
 impl<T> JoinHandle<T> {
-    pub(super) fn new(raw: RawTask) -> JoinHandle<T> {
+    pub(super) const fn new(raw: RawTask) -> JoinHandle<T> {
         JoinHandle {
             raw,
             _p: PhantomData,

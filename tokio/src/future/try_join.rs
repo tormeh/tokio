@@ -5,7 +5,7 @@ use std::future::Future;
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
-pub(crate) fn try_join3<T1, F1, T2, F2, T3, F3, E>(
+pub(crate) const fn try_join3<T1, F1, T2, F2, T3, F3, E>(
     future1: F1,
     future2: F2,
     future3: F3,

@@ -300,7 +300,7 @@ cfg_rt! {
     }
 
     impl BlockingRegionGuard {
-        fn new() -> BlockingRegionGuard {
+        const fn new() -> BlockingRegionGuard {
             BlockingRegionGuard { _p: PhantomData }
         }
         /// Blocks the thread on the specified future, returning the value with

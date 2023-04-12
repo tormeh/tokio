@@ -30,7 +30,7 @@ macro_rules! reader {
         }
 
         impl<R> $name<R> {
-            pub(crate) fn new(src: R) -> Self {
+            pub(crate) const fn new(src: R) -> Self {
                 $name {
                     src,
                     buf: [0; $bytes],
@@ -94,7 +94,7 @@ macro_rules! reader8 {
         }
 
         impl<R> $name<R> {
-            pub(crate) fn new(reader: R) -> $name<R> {
+            pub(crate) const fn new(reader: R) -> $name<R> {
                 $name {
                     reader,
                     _pin: PhantomPinned,

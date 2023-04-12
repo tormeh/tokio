@@ -139,7 +139,7 @@ const WAKING: usize = 0b10;
 
 impl AtomicWaker {
     /// Create an `AtomicWaker`
-    pub(crate) fn new() -> AtomicWaker {
+    pub(crate) const fn new() -> AtomicWaker {
         AtomicWaker {
             state: AtomicUsize::new(WAITING),
             waker: UnsafeCell::new(None),

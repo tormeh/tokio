@@ -237,7 +237,7 @@ impl CachedParkThread {
     ///
     /// This type cannot be moved to other threads, so it should be created on
     /// the thread that the caller intends to park.
-    pub(crate) fn new() -> CachedParkThread {
+    pub(crate) const fn new() -> CachedParkThread {
         CachedParkThread {
             _anchor: PhantomData,
         }

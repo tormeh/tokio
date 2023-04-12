@@ -272,7 +272,7 @@ impl Semaphore {
         }
     }
 
-    pub(crate) fn acquire(&self, num_permits: u32) -> Acquire<'_> {
+    pub(crate) const fn acquire(&self, num_permits: u32) -> Acquire<'_> {
         Acquire::new(self, num_permits)
     }
 
@@ -485,7 +485,7 @@ impl fmt::Debug for Semaphore {
 }
 
 impl Waiter {
-    fn new(
+    const fn new(
         num_permits: u32,
         #[cfg(all(tokio_unstable, feature = "tracing"))] ctx: trace::AsyncOpTracingCtx,
     ) -> Self {
@@ -571,7 +571,7 @@ impl Future for Acquire<'_> {
 }
 
 impl<'a> Acquire<'a> {
-    fn new(semaphore: &'a Semaphore, num_permits: u32) -> Self {
+    const fn new(semaphore: &'a Semaphore, num_permits: u32) -> Self {
         #[cfg(any(not(tokio_unstable), not(feature = "tracing")))]
         return Self {
             node: Waiter::new(num_permits),
@@ -616,7 +616,7 @@ impl<'a> Acquire<'a> {
     }
 
     fn project(self: Pin<&mut Self>) -> (Pin<&mut Waiter>, &Semaphore, u32, &mut bool) {
-        fn is_unpin<T: Unpin>() {}
+        const fn is_unpin<T: Unpin>() {}
         unsafe {
             // Safety: all fields other than `node` are `Unpin`
 
@@ -670,7 +670,7 @@ unsafe impl Sync for Acquire<'_> {}
 // ===== impl AcquireError ====
 
 impl AcquireError {
-    fn closed() -> AcquireError {
+    const fn closed() -> AcquireError {
         AcquireError(())
     }
 }
@@ -688,14 +688,14 @@ impl std::error::Error for AcquireError {}
 impl TryAcquireError {
     /// Returns `true` if the error was caused by a closed semaphore.
     #[allow(dead_code)] // may be used later!
-    pub(crate) fn is_closed(&self) -> bool {
+    pub(crate) const fn is_closed(&self) -> bool {
         matches!(self, TryAcquireError::Closed)
     }
 
     /// Returns `true` if the error was caused by calling `try_acquire` on a
     /// semaphore with no available permits.
     #[allow(dead_code)] // may be used later!
-    pub(crate) fn is_no_permits(&self) -> bool {
+    pub(crate) const fn is_no_permits(&self) -> bool {
         matches!(self, TryAcquireError::NoPermits)
     }
 }

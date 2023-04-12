@@ -208,7 +208,7 @@ cfg_coop! {
 
         cfg_not_metrics! {
             #[inline(always)]
-            fn inc_budget_forced_yield_count() {}
+            const fn inc_budget_forced_yield_count() {}
         }
     }
 

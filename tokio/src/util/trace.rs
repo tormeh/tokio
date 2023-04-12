@@ -81,7 +81,7 @@ cfg_trace! {
 }
 cfg_time! {
     #[track_caller]
-    pub(crate) fn caller_location() -> Option<&'static std::panic::Location<'static>> {
+    pub(crate) const fn caller_location() -> Option<&'static std::panic::Location<'static>> {
         #[cfg(all(tokio_unstable, feature = "tracing"))]
         return Some(std::panic::Location::caller());
         #[cfg(not(all(tokio_unstable, feature = "tracing")))]
@@ -92,7 +92,7 @@ cfg_time! {
 cfg_not_trace! {
     cfg_rt! {
         #[inline]
-        pub(crate) fn task<F>(task: F, _: &'static str, _name: Option<&str>, _: u64) -> F {
+        pub(crate) const fn task<F>(task: F, _: &'static str, _name: Option<&str>, _: u64) -> F {
             // nop
             task
         }

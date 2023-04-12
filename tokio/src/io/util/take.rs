@@ -18,7 +18,7 @@ pin_project! {
     }
 }
 
-pub(super) fn take<R: AsyncRead>(inner: R, limit: u64) -> Take<R> {
+pub(super) const fn take<R: AsyncRead>(inner: R, limit: u64) -> Take<R> {
     Take {
         inner,
         limit_: limit,

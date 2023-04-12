@@ -138,11 +138,11 @@ impl<T> IdleNotifiedSet<T> {
         }
     }
 
-    pub(crate) fn len(&self) -> usize {
+    pub(crate) const fn len(&self) -> usize {
         self.length
     }
 
-    pub(crate) fn is_empty(&self) -> bool {
+    pub(crate) const fn is_empty(&self) -> bool {
         self.length == 0
     }
 

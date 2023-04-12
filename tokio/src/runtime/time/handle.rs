@@ -9,7 +9,7 @@ pub(crate) struct Handle {
 
 impl Handle {
     /// Returns the time source associated with this handle.
-    pub(crate) fn time_source(&self) -> &TimeSource {
+    pub(crate) const fn time_source(&self) -> &TimeSource {
         &self.time_source
     }
 

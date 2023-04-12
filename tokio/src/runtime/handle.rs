@@ -328,13 +328,13 @@ pub struct TryCurrentError {
 }
 
 impl TryCurrentError {
-    pub(crate) fn new_no_context() -> Self {
+    pub(crate) const fn new_no_context() -> Self {
         Self {
             kind: TryCurrentErrorKind::NoContext,
         }
     }
 
-    pub(crate) fn new_thread_local_destroyed() -> Self {
+    pub(crate) const fn new_thread_local_destroyed() -> Self {
         Self {
             kind: TryCurrentErrorKind::ThreadLocalDestroyed,
         }

@@ -7,24 +7,24 @@ pub(crate) struct WorkerMetrics {}
 pub(crate) struct MetricsBatch {}
 
 impl SchedulerMetrics {
-    pub(crate) fn new() -> Self {
+    pub(crate) const fn new() -> Self {
         Self {}
     }
 
     /// Increment the number of tasks scheduled externally
-    pub(crate) fn inc_remote_schedule_count(&self) {}
+    pub(crate) const fn inc_remote_schedule_count(&self) {}
 }
 
 impl WorkerMetrics {
-    pub(crate) fn new() -> Self {
+    pub(crate) const fn new() -> Self {
         Self {}
     }
 
-    pub(crate) fn set_queue_depth(&self, _len: usize) {}
+    pub(crate) const fn set_queue_depth(&self, _len: usize) {}
 }
 
 impl MetricsBatch {
-    pub(crate) fn new() -> Self {
+    pub(crate) const fn new() -> Self {
         Self {}
     }
 

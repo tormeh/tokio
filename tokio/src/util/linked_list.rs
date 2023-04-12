@@ -388,7 +388,7 @@ feature! {
 
 impl<T> Pointers<T> {
     /// Create a new set of empty pointers
-    pub(crate) fn new() -> Pointers<T> {
+    pub(crate) const fn new() -> Pointers<T> {
         Pointers {
             inner: UnsafeCell::new(PointersInner {
                 prev: None,

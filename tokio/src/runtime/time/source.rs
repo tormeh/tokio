@@ -28,7 +28,7 @@ impl TimeSource {
         ms.try_into().unwrap_or(u64::MAX)
     }
 
-    pub(crate) fn tick_to_duration(&self, t: u64) -> Duration {
+    pub(crate) const fn tick_to_duration(&self, t: u64) -> Duration {
         Duration::from_millis(t)
     }
 

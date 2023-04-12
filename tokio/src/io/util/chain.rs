@@ -19,7 +19,7 @@ pin_project! {
     }
 }
 
-pub(super) fn chain<T, U>(first: T, second: U) -> Chain<T, U>
+pub(super) const fn chain<T, U>(first: T, second: U) -> Chain<T, U>
 where
     T: AsyncRead,
     U: AsyncRead,

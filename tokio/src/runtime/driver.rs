@@ -110,7 +110,7 @@ impl Handle {
                 .expect("A Tokio 1.x context was found, but timers are disabled. Call `enable_time` on the runtime builder to enable timers.")
         }
 
-        pub(crate) fn clock(&self) -> &Clock {
+        pub(crate) const fn clock(&self) -> &Clock {
             &self.clock
         }
     }
@@ -184,7 +184,7 @@ cfg_io_driver! {
             }
         }
 
-        pub(crate) fn as_ref(&self) -> Option<&crate::runtime::io::Handle> {
+        pub(crate) const fn as_ref(&self) -> Option<&crate::runtime::io::Handle> {
             match self {
                 IoHandle::Enabled(v) => Some(v),
                 IoHandle::Disabled(..) => None,

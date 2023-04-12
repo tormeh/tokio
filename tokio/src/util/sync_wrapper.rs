@@ -16,7 +16,7 @@ unsafe impl<T: Send> Send for SyncWrapper<T> {}
 unsafe impl<T> Sync for SyncWrapper<T> {}
 
 impl<T> SyncWrapper<T> {
-    pub(crate) fn new(value: T) -> Self {
+    pub(crate) const fn new(value: T) -> Self {
         Self { value }
     }
 

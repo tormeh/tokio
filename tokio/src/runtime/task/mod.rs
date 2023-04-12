@@ -344,7 +344,7 @@ impl<S: 'static> Task<S> {
         self.raw.header()
     }
 
-    fn header_ptr(&self) -> NonNull<Header> {
+    const fn header_ptr(&self) -> NonNull<Header> {
         self.raw.header_ptr()
     }
 }

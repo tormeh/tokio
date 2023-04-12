@@ -40,7 +40,7 @@ where
     W: Wait,
     Q: OrphanQueue<W>,
 {
-    pub(crate) fn new(inner: W, orphan_queue: Q, signal: S) -> Self {
+    pub(crate) const fn new(inner: W, orphan_queue: Q, signal: S) -> Self {
         Self {
             inner: Some(inner),
             orphan_queue,

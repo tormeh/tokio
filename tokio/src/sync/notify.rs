@@ -237,7 +237,7 @@ struct Waiter {
 }
 
 impl Waiter {
-    fn new() -> Waiter {
+    const fn new() -> Waiter {
         Waiter {
             pointers: linked_list::Pointers::new(),
             waker: None,
@@ -350,19 +350,19 @@ const WAITING: usize = 1;
 /// Pending notification.
 const NOTIFIED: usize = 2;
 
-fn set_state(data: usize, state: usize) -> usize {
+const fn set_state(data: usize, state: usize) -> usize {
     (data & NOTIFY_WAITERS_CALLS_MASK) | (state & STATE_MASK)
 }
 
-fn get_state(data: usize) -> usize {
+const fn get_state(data: usize) -> usize {
     data & STATE_MASK
 }
 
-fn get_num_notify_waiters_calls(data: usize) -> usize {
+const fn get_num_notify_waiters_calls(data: usize) -> usize {
     (data & NOTIFY_WAITERS_CALLS_MASK) >> NOTIFY_WAITERS_SHIFT
 }
 
-fn inc_num_notify_waiters_calls(data: usize) -> usize {
+const fn inc_num_notify_waiters_calls(data: usize) -> usize {
     data + (1 << NOTIFY_WAITERS_SHIFT)
 }
 
@@ -380,7 +380,7 @@ impl Notify {
     ///
     /// let notify = Notify::new();
     /// ```
-    pub fn new() -> Notify {
+    pub const fn new() -> Notify {
         Notify {
             state: AtomicUsize::new(0),
             waiters: Mutex::new(LinkedList::new()),
@@ -1086,4 +1086,4 @@ unsafe impl linked_list::Link for Waiter {
     }
 }
 
-fn is_unpin<T: Unpin>() {}
+const fn is_unpin<T: Unpin>() {}

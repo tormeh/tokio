@@ -29,7 +29,7 @@ pin_project! {
     }
 }
 
-pub(crate) fn lines<R>(reader: R) -> Lines<R>
+pub(crate) const fn lines<R>(reader: R) -> Lines<R>
 where
     R: AsyncBufRead,
 {

@@ -110,7 +110,7 @@ impl std::fmt::Debug for StateCell {
 }
 
 impl StateCell {
-    fn new() -> Self {
+    const fn new() -> Self {
         Self {
             state: AtomicU64::new(STATE_DEREGISTERED),
             result: UnsafeCell::new(Ok(())),
@@ -492,7 +492,7 @@ impl TimerEntry {
         unsafe { &*self.inner.get() }
     }
 
-    pub(crate) fn deadline(&self) -> Instant {
+    pub(crate) const fn deadline(&self) -> Instant {
         self.deadline
     }
 

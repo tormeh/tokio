@@ -383,7 +383,7 @@ cfg_io_readiness! {
         // we are borrowing the `UnsafeCell` possibly over await boundaries.
         //
         // Go figure.
-        fn readiness_fut(&self, interest: Interest) -> Readiness<'_> {
+        const fn readiness_fut(&self, interest: Interest) -> Readiness<'_> {
             Readiness {
                 scheduled_io: self,
                 state: State::Init,

@@ -24,7 +24,7 @@ impl WakeList {
     }
 
     #[inline]
-    pub(crate) fn can_push(&self) -> bool {
+    pub(crate) const fn can_push(&self) -> bool {
         self.curr < NUM_WAKERS
     }
 

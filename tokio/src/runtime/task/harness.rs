@@ -26,7 +26,7 @@ where
         }
     }
 
-    fn header_ptr(&self) -> NonNull<Header> {
+    const fn header_ptr(&self) -> NonNull<Header> {
         self.cell.cast()
     }
 

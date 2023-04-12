@@ -515,7 +515,7 @@ impl<T> Inner<T> {
 
 /// Split the head value into the real head and the index a stealer is working
 /// on.
-fn unpack(n: UnsignedLong) -> (UnsignedShort, UnsignedShort) {
+const fn unpack(n: UnsignedLong) -> (UnsignedShort, UnsignedShort) {
     let real = n & UnsignedShort::MAX as UnsignedLong;
     let steal = n >> (mem::size_of::<UnsignedShort>() * 8);
 
@@ -523,7 +523,7 @@ fn unpack(n: UnsignedLong) -> (UnsignedShort, UnsignedShort) {
 }
 
 /// Join the two head values
-fn pack(steal: UnsignedShort, real: UnsignedShort) -> UnsignedLong {
+const fn pack(steal: UnsignedShort, real: UnsignedShort) -> UnsignedLong {
     (real as UnsignedLong) | ((steal as UnsignedLong) << (mem::size_of::<UnsignedShort>() * 8))
 }
 

@@ -69,13 +69,13 @@ const READY_MASK: usize = RELEASED - 1;
 
 /// Returns the index of the first slot in the block referenced by `slot_index`.
 #[inline(always)]
-pub(crate) fn start_index(slot_index: usize) -> usize {
+pub(crate) const fn start_index(slot_index: usize) -> usize {
     BLOCK_MASK & slot_index
 }
 
 /// Returns the offset into the block referenced by `slot_index`.
 #[inline(always)]
-pub(crate) fn offset(slot_index: usize) -> usize {
+pub(crate) const fn offset(slot_index: usize) -> usize {
     SLOT_MASK & slot_index
 }
 
@@ -394,13 +394,13 @@ impl<T> Block<T> {
 }
 
 /// Returns `true` if the specified slot has a value ready to be consumed.
-fn is_ready(bits: usize, slot: usize) -> bool {
+const fn is_ready(bits: usize, slot: usize) -> bool {
     let mask = 1 << slot;
     mask == mask & bits
 }
 
 /// Returns `true` if the closed flag has been set.
-fn is_tx_closed(bits: usize) -> bool {
+const fn is_tx_closed(bits: usize) -> bool {
     TX_CLOSED == bits & TX_CLOSED
 }
 

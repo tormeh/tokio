@@ -1301,4 +1301,4 @@ impl<'a, T> Drop for RecvGuard<'a, T> {
     }
 }
 
-fn is_unpin<T: Unpin>() {}
+const fn is_unpin<T: Unpin>() {}

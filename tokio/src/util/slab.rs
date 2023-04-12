@@ -458,12 +458,12 @@ impl<T: Entry> Page<T> {
 impl<T> Page<T> {
     /// Returns the slot index within the current page referenced by the given
     /// address.
-    fn slot(&self, addr: Address) -> usize {
+    const fn slot(&self, addr: Address) -> usize {
         addr.0 - self.prev_len
     }
 
     /// Returns the address for the given slot.
-    fn addr(&self, slot: usize) -> Address {
+    const fn addr(&self, slot: usize) -> Address {
         Address(slot + self.prev_len)
     }
 }
@@ -607,7 +607,7 @@ impl Address {
         self.0
     }
 
-    pub(crate) fn from_usize(src: usize) -> Address {
+    pub(crate) const fn from_usize(src: usize) -> Address {
         Address(src)
     }
 }

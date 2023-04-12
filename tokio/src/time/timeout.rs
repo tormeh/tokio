@@ -167,7 +167,7 @@ pin_project! {
 }
 
 impl<T> Timeout<T> {
-    pub(crate) fn new_with_delay(value: T, delay: Sleep) -> Timeout<T> {
+    pub(crate) const fn new_with_delay(value: T, delay: Sleep) -> Timeout<T> {
         Timeout { value, delay }
     }
 

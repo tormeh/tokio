@@ -97,7 +97,7 @@ pub(super) enum TransitionToNotifiedByRef {
 /// unambiguous modification order.
 impl State {
     /// Returns a task's initial state.
-    pub(super) fn new() -> State {
+    pub(super) const fn new() -> State {
         // The raw task returned by this method has a ref-count of three. See
         // the comment on INITIAL_STATE for more.
         State {

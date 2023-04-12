@@ -171,7 +171,7 @@ impl RawTask {
         RawTask { ptr }
     }
 
-    pub(super) fn header_ptr(&self) -> NonNull<Header> {
+    pub(super) const fn header_ptr(&self) -> NonNull<Header> {
         self.ptr
     }
 

@@ -47,7 +47,7 @@ pub(crate) struct RwLockWriteGuard<'a, T: ?Sized>(
 
 impl<T> Mutex<T> {
     #[inline]
-    pub(crate) fn new(t: T) -> Mutex<T> {
+    pub(crate) const fn new(t: T) -> Mutex<T> {
         Mutex(PhantomData, parking_lot::Mutex::new(t))
     }
 
@@ -93,7 +93,7 @@ impl<'a, T: ?Sized> DerefMut for MutexGuard<'a, T> {
 }
 
 impl<T> RwLock<T> {
-    pub(crate) fn new(t: T) -> RwLock<T> {
+    pub(crate) const fn new(t: T) -> RwLock<T> {
         RwLock(PhantomData, parking_lot::RwLock::new(t))
     }
 
@@ -128,7 +128,7 @@ impl<'a, T: ?Sized> DerefMut for RwLockWriteGuard<'a, T> {
 
 impl Condvar {
     #[inline]
-    pub(crate) fn new() -> Condvar {
+    pub(crate) const fn new() -> Condvar {
         Condvar(PhantomData, parking_lot::Condvar::new())
     }
 

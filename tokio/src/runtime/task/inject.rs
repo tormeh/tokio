@@ -36,7 +36,7 @@ unsafe impl<T> Send for Inject<T> {}
 unsafe impl<T> Sync for Inject<T> {}
 
 impl<T: 'static> Inject<T> {
-    pub(crate) fn new() -> Inject<T> {
+    pub(crate) const fn new() -> Inject<T> {
         Inject {
             pointers: Mutex::new(Pointers {
                 is_closed: false,

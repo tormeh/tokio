@@ -82,7 +82,7 @@ impl RngSeed {
         }
     }
 
-    fn from_u64(seed: u64) -> Self {
+    const fn from_u64(seed: u64) -> Self {
         let one = (seed >> 32) as u32;
         let mut two = seed as u32;
 
@@ -94,7 +94,7 @@ impl RngSeed {
         Self::from_pair(one, two)
     }
 
-    fn from_pair(s: u32, r: u32) -> Self {
+    const fn from_pair(s: u32, r: u32) -> Self {
         Self { s, r }
     }
 }
@@ -113,7 +113,7 @@ pub(crate) struct FastRand {
 
 impl FastRand {
     /// Initializes a new, thread-local, fast random number generator.
-    pub(crate) fn new(seed: RngSeed) -> FastRand {
+    pub(crate) const fn new(seed: RngSeed) -> FastRand {
         FastRand {
             one: Cell::new(seed.s),
             two: Cell::new(seed.r),

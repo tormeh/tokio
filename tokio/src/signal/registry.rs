@@ -68,7 +68,7 @@ pub(crate) struct Registry<S> {
 }
 
 impl<S> Registry<S> {
-    fn new(storage: S) -> Self {
+    const fn new(storage: S) -> Self {
         Self { storage }
     }
 }
@@ -145,7 +145,7 @@ impl Globals {
     }
 
     #[cfg(unix)]
-    pub(crate) fn storage(&self) -> &OsStorage {
+    pub(crate) const fn storage(&self) -> &OsStorage {
         &self.registry.storage
     }
 }

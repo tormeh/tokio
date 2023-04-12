@@ -18,7 +18,7 @@ pub struct AbortHandle {
 }
 
 impl AbortHandle {
-    pub(super) fn new(raw: RawTask) -> Self {
+    pub(super) const fn new(raw: RawTask) -> Self {
         Self { raw }
     }
 

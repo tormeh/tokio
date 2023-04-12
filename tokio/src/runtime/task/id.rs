@@ -81,7 +81,7 @@ impl Id {
         Self(NEXT_ID.fetch_add(1, Relaxed))
     }
 
-    pub(crate) fn as_u64(&self) -> u64 {
+    pub(crate) const fn as_u64(&self) -> u64 {
         self.0
     }
 }

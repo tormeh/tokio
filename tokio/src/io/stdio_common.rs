@@ -14,7 +14,7 @@ pub(crate) struct SplitByUtf8BoundaryIfWindows<W> {
 }
 
 impl<W> SplitByUtf8BoundaryIfWindows<W> {
-    pub(crate) fn new(inner: W) -> Self {
+    pub(crate) const fn new(inner: W) -> Self {
         Self { inner }
     }
 }

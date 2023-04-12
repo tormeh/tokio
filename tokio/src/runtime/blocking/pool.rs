@@ -235,7 +235,7 @@ impl BlockingPool {
         }
     }
 
-    pub(crate) fn spawner(&self) -> &Spawner {
+    pub(crate) const fn spawner(&self) -> &Spawner {
         &self.spawner
     }
 

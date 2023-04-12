@@ -25,7 +25,7 @@ pin_project! {
     }
 }
 
-pub(crate) fn split<R>(reader: R, delim: u8) -> Split<R>
+pub(crate) const fn split<R>(reader: R, delim: u8) -> Split<R>
 where
     R: AsyncBufRead,
 {

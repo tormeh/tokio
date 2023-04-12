@@ -94,8 +94,8 @@ const ADDRESS: bit::Pack = bit::Pack::least_significant(24);
 // not match, then the readiness event is discarded.
 const GENERATION: bit::Pack = ADDRESS.then(7);
 
-fn _assert_kinds() {
-    fn _assert<T: Send + Sync>() {}
+const fn _assert_kinds() {
+    const fn _assert<T: Send + Sync>() {}
 
     _assert::<Handle>();
 }
@@ -308,7 +308,7 @@ impl fmt::Debug for Handle {
 // ===== impl IoDispatcher =====
 
 impl IoDispatcher {
-    fn new(allocator: slab::Allocator<ScheduledIo>) -> Self {
+    const fn new(allocator: slab::Allocator<ScheduledIo>) -> Self {
         Self {
             allocator,
             is_shutdown: false,

@@ -1282,7 +1282,7 @@ const CLOSED: usize = 0b00100;
 const TX_TASK_SET: usize = 0b01000;
 
 impl State {
-    fn new() -> State {
+    const fn new() -> State {
         State(0)
     }
 
