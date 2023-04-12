@@ -77,12 +77,12 @@ impl<T> JoinSet<T> {
     }
 
     /// Returns the number of tasks currently in the `JoinSet`.
-    pub fn len(&self) -> usize {
+    pub const fn len(&self) -> usize {
         self.inner.len()
     }
 
     /// Returns whether the `JoinSet` is empty.
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         self.inner.is_empty()
     }
 }

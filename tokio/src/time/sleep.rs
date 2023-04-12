@@ -309,7 +309,7 @@ impl Sleep {
     }
 
     /// Returns the instant at which the future will complete.
-    pub fn deadline(&self) -> Instant {
+    pub const fn deadline(&self) -> Instant {
         self.entry.deadline()
     }
 
